@@ -1,6 +1,7 @@
 mod tokenizer;
 mod tokenizer_v2;
-pub mod types;
 
-pub use tokenizer::tokenize;
+pub mod token_types;
+mod types;
 
+// use tokenizer::tokenize;

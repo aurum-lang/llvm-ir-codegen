@@ -1,3 +1,6 @@
+#![allow(unused, dead_code)]
+
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub enum Primitive {
     Integer,
     Float,
@@ -5,6 +8,15 @@ pub enum Primitive {
     String,
 }
 
+#[derive(Debug, Clone, PartialEq, PartialOrd)]
+pub enum Literal {
+    Int(i32),
+    Float(f32),
+    Bool(bool),
+    String(String),
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
 pub enum Keyword {
     For,
     While,
@@ -19,6 +31,7 @@ pub enum Keyword {
     String,
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
 pub enum Symbol {
     LBracket,
     RBracket,
@@ -36,9 +49,10 @@ pub enum Symbol {
     DivideEqual,
 }
 
+#[derive(Debug, Clone, PartialEq, PartialOrd)]
 pub enum Token {
     Keyword(Keyword),
     Symbol(Symbol),
-    Literal(String),
+    Literal(Literal),
     Array(Primitive),
 }
