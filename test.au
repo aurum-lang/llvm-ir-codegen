@@ -1,0 +1,21 @@
+int num = 2
+
+fn e {
+	num += 2
+}
+
+print("test")
+bool b = true
+
+for x in 1 to 5 {
+	print("hi")
+}
+
+[int] arr = [1, 2, 3]
+for i in arr {
+	print(i)
+}
+
+if num == 2 {
+	print("pass")
+}

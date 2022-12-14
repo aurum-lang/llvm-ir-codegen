@@ -1,14 +1,12 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
+mod lexer;
 
 #[cfg(test)]
 mod tests {
-    use super::*;
+    use crate::lexer;
 
     #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
+    pub fn lexer_test() {
+        let content: String = std::fs::read_to_string("./test.au").unwrap();
+        let _ = std::fs::write("test.lex", lexer::tokenize(content).unwrap());
     }
 }
