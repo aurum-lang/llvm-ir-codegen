@@ -1,5 +1,8 @@
 #![allow(unused, dead_code)]
 
+/// Representations of static primitive types
+/// Do NOT contain values, instead represent expected values
+/// Useful for signifying collection types in ASTs
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub enum Primitive {
     Integer,
@@ -8,6 +11,8 @@ pub enum Primitive {
     String,
 }
 
+/// Literal types which contain values
+/// (Hybrid AST type)
 #[derive(Debug, Clone, PartialEq, PartialOrd)]
 pub enum Literal {
     Int(i32),
@@ -16,6 +21,7 @@ pub enum Literal {
     String(String),
 }
 
+/// Keyword token to be interpreted
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
 pub enum Keyword {
     For,
@@ -31,6 +37,7 @@ pub enum Keyword {
     String,
 }
 
+/// Token symbols to be preceded by keywords
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
 pub enum Symbol {
     LBracket,
@@ -49,10 +56,12 @@ pub enum Symbol {
     DivideEqual,
 }
 
+/// Monolithic token type
 #[derive(Debug, Clone, PartialEq, PartialOrd)]
 pub enum Token {
     Keyword(Keyword),
     Symbol(Symbol),
     Literal(Literal),
     Array(Primitive),
+    Unknown(String),
 }
