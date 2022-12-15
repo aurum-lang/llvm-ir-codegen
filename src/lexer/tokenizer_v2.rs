@@ -1,5 +1,5 @@
 #![allow(unused, dead_code)]
-use crate::lexer::token_types::{Literal, Token};
+use crate::lexer::token_types::{self, Literal, Token};
 
 // Unfinished helper type
 // pub struct TokenStream {
@@ -128,13 +128,21 @@ pub fn tokenize<T: ToString>(input: T) -> Vec<u8> {
                 buffer += stringify!("<Symbol({sym:?})>");
             }
             Token::Literal(lit) => {
-                buffer += stringify!("<Literal({kword:?})>");
+                if let Literal::Int(x) = lit {
+                    buffer += stringify!("<Literal({x})>");
+                } else if let Literal::Bool(x) = lit {
+                    buffer += stringify!("<Literal({x})>");
+                } else if let Literal::Float(x) = lit {
+                    buffer += stringify!("<Literal({x})>");
+                } else if let Literal::String(x) = lit {
+                    buffer += stringify!("<Literal({x})>");
+                }
             }
             Token::Array(prim) => {
-                buffer += stringify!("<Keyword({kword:?})>");
+                buffer += stringify!("<Primitive({prim:?})>");
             }
             Token::Unknown(name) => {
-                buffer += stringify!("<Keyword({kword:?})>");
+                buffer += stringify!("<Unknown({name:?})>");
             }
         }
     }
