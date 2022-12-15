@@ -121,11 +121,21 @@ pub fn tokenize<T: ToString>(input: T) -> Vec<u8> {
 
     for token in token_stream {
         match token {
-            Token::Keyword(kword) => {}
-            Token::Symbol(sym) => {}
-            Token::Literal(lit) => {}
-            Token::Array(prim) => {}
-            Token::Unknown(name) => {}
+            Token::Keyword(kword) => {
+                buffer += stringify!("<Keyword({kword:?})>");
+            }
+            Token::Symbol(sym) => {
+                buffer += stringify!("<Symbol({sym:?})>");
+            }
+            Token::Literal(lit) => {
+                buffer += stringify!("<Literal({kword:?})>");
+            }
+            Token::Array(prim) => {
+                buffer += stringify!("<Keyword({kword:?})>");
+            }
+            Token::Unknown(name) => {
+                buffer += stringify!("<Keyword({kword:?})>");
+            }
         }
     }
 
