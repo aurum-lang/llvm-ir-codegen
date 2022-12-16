@@ -122,27 +122,27 @@ pub fn tokenize<T: ToString>(input: T) -> Vec<u8> {
     for token in token_stream {
         match token {
             Token::Keyword(kword) => {
-                buffer += stringify!("<Keyword({kword:?})>");
+                buffer += &format!("<Keyword({kword:?})>");
             }
             Token::Symbol(sym) => {
-                buffer += stringify!("<Symbol({sym:?})>");
+                buffer += &format!("<Symbol({sym:?})>");
             }
             Token::Literal(lit) => {
                 if let Literal::Int(x) = lit {
-                    buffer += stringify!("<Literal({x})>");
+                    buffer += &format!("<Literal({x})>");
                 } else if let Literal::Bool(x) = lit {
-                    buffer += stringify!("<Literal({x})>");
+                    buffer += &format!("<Literal({x})>");
                 } else if let Literal::Float(x) = lit {
-                    buffer += stringify!("<Literal({x})>");
+                    buffer += &format!("<Literal({x})>");
                 } else if let Literal::String(x) = lit {
-                    buffer += stringify!("<Literal({x})>");
+                    buffer += &format!("<Literal({x})>");
                 }
             }
             Token::Array(prim) => {
-                buffer += stringify!("<Primitive({prim:?})>");
+                buffer += &format!("<Primitive({prim:?})>");
             }
             Token::Unknown(name) => {
-                buffer += stringify!("<Unknown({name:?})>");
+                buffer += &format!("<Unknown({name:?})>");
             }
         }
     }

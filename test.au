@@ -1,21 +1,29 @@
-int num = 2
+let int num rep 2
 
-fn e {
+fn e do
 	num += 2
-}
+end
 
 print("test")
-bool b = true
+let bool b rep true
 
-for x in 1 to 5 {
+for x in 1 to 5 do
 	print("hi")
-}
+end
 
 [int] arr = [1, 2, 3]
-for i in arr {
+for i in arr do
 	print(i)
-}
+end
 
-if num == 2 {
+if num == 2 do
 	print("pass")
-}
+end
+
+if num is 2 do
+    print "pass 2"
+end
+
+if num equals 2 do
+    print "pass 4"
+end
